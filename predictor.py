@@ -10,14 +10,23 @@ pair = {}
 #list to store predictions
 predictions = []
 
+
+#accepting the bits to be extracted.
+while(True):
+    i1 = input("Starting Bit?\n")
+    i2 = input("Ending Bit?\n")
+    if i2-i1!=14 or i2<i1 or i2>23 or i1<0:
+        print "Invalid Input. Enter Again."
+    else:
+        break 
+
 #traversing through the csv
 for addr, outcome in zip(df[0], df[1]):
     
     #converting address to binary
     addr = bin(int(addr, 16))[2:]
-    
     #extracting 14 bits from the middle of the binary addresss
-    addr = addr[4:18]
+    addr = addr[i1:i2]
 
     #if address is not already in dictionary, add prediction as not taken, initialize sat counter to 0
     if addr not in pair:
