@@ -16,7 +16,7 @@ while(True):
     i1 = input("Starting Bit?\n")
     offset = input("Number of Bits to Select?\n")
     i2 = i1+offset
-    if i1<0 or i1>31:
+    if i1<0 or i1>31 or offset>31:
         print "Invalid Input. Enter Again."
     else:
         break 
